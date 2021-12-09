@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+       <script src="https://cdn.jsdelivr.net/npm/simple-crypto-js@legacy/dist/SimpleCrypto.min.js"></script>
+
+    <style>
+
+      input, div{
+        font-size: 30pt;
+      }
+
+    </style>
+  </head>
+  <body>
+
+
+
+  <script>
+function getLinkHtml(_secretKey){
+  cipherText = "c58a6509b8b791134f5b035c48469c33cb2059cd58ba804fa772d5c9b36852f3ArKv+M38hBfbVXPh5RsRfQhg7+VkC4ikm3BLoTKM/M8qIVVwA4l823q18hakr8cq4AE7YxqYzvTxD+6pLqDAaumeAzG8idKuRhkguiipiWQNzz2SPSaBAw5lJCiErVsk38723f6ef4518cd3c54455c12ffffc818de07daec97ded76c71957a10036a644"
+  var simpleCrypto = new SimpleCrypto(_secretKey);
+  var decipherText = simpleCrypto.decrypt(cipherText);
+  var html = "<a href=\""+decipherText+"\"><strong>CLICK FOR VIDEO</strong></a>"
+
+  document.getElementById("linkHolder").innerHTML = html;
+}
+
+
+
+    // var _secretKey = "password";
+ 
+// var simpleCrypto = new SimpleCrypto(_secretKey);
+ 
+// var plainText = "youtube link";
+// var cipherText = simpleCrypto.encrypt(plainText);
+// console.log("Encryption process...");
+// console.log("Plain Text    : " + plainText);
+// console.log("Cipher Text   : " + cipherText);
+// var decipherText = simpleCrypto.decrypt(cipherText);
+// console.log("... and then decryption...");
+// console.log("Decipher Text : " + decipherText);
+// console.log("... done.");
+
+
+
+  </script>
+
+
+
+<div>Enter mother's full maiden name <br> (with capital letters and spacing):</div>
+<form>
+    <input id="pwd" type="text" onchange="getLinkHtml(this.value)">
+</form>
+<button>SUBMIT</button>
+<br>
+<div id="linkHolder"></div>
+
+  </body>
+</html>
